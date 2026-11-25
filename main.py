@@ -47,6 +47,8 @@ def _validate(joke: str) -> None:
         raise ValueError(f"joke must be 1-200 chars, got {len(joke)}")
     if "\n" in joke or "\r" in joke:
         raise ValueError("joke must be a single line")
+    if joke != joke.strip():
+        raise ValueError("joke must not start or end with whitespace")
     if not joke.strip():
         raise ValueError("joke must not be only whitespace")
 
